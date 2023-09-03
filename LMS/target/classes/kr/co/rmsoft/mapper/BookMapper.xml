@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-Mapper.dtd">
+<mapper namespace="kr.co.rmsoft.mapper.BookMapper">
+	
+	<insert id="insertBook">
+		INSERT INTO book_list VALUES (book_list_seq.NEXTVAL, #{title}, #{writer}, #{publisher}, sysdate)
+	</insert>
+	
+	<update id="updateBook">
+		UPDATE book_list
+		<set>
+			<if test="book.title != null"> title = #{book.title},</if>
+			<if test="book.writer != null"> writer = #{book.writer},</if>
+			<if test="book.publisher != null"> publisher = #{book.publisher}</if>
+		</set>
+		WHERE num = #{number}
+	</update>
+
+	<insert id="rentalBook">
+		INSERT INTO book_history (num, book_num,title,id,rental, rental_reg) VALUES (book_history_seq.NEXTVAL, #{book_num}, #{title}, #{id}, #{rental}, sysdate)
+	</insert>
+	
+	<update id="backBook">
+		UPDATE book_history SET back = #{history.back}, back_reg = sysdate WHERE num = #{number}
+	</update>
+	
+	<select id="getBookHistory" resultType="BookHistoryDTO">
+		SELECT * FROM book_history WHERE num = #{number}
+	</select>
+</mapper>
