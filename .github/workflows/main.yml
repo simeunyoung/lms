@@ -8,10 +8,10 @@ on:
     
 # --------------------------추가
 env:
-  PROJECT_NAME: moduform_project
-  BUCKET_NAME: moduform-cicd-bucket
-  CODE_DEPLOY_APP_NAME: moduform_cicd
-  DEPLOYMENT_GROUP_NAME: moduform_instance
+  PROJECT_NAME: lms_project
+  BUCKET_NAME: lms-cicd-bucket
+  CODE_DEPLOY_APP_NAME: lms_cicd
+  DEPLOYMENT_GROUP_NAME: lms_instance
 # --------------------------추가
 
 jobs:
