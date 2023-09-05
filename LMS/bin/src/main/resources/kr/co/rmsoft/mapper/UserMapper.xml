@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-Mapper.dtd">
+<mapper namespace="kr.co.rmsoft.mapper.UserMapper">
+
+	<select id="getUser" resultType="UserDTO">
+		SELECT * FROM rmsoft_user WHERE id = #{userid}
+	</select>
+	
+	<select id="getUserList" resultType="UserDTO">
+		SELECT * FROM rmsoft_user
+	</select>
+	
+	<insert id="insertUser">
+		INSERT INTO rmsoft_user VALUES(#{id}, #{pw}, #{name}, #{age})
+	</insert>
+	
+	<update id="updateUser">
+		UPDATE rmsoft_user 
+		<set>
+			<if test="user.pw != null">pw = #{user.pw},</if>
+			<if test="user.name != null">name = #{user.name},</if>
+			<if test="user.age != null">age = #{user.age}</if>
+		</set>
+		WHERE id = #{userid}
+	</update>
+	
+	<delete id="deleteUser">
+		DELETE FROM rmsoft_user WHERE id = #{userid}
+	</delete>
+</mapper>
