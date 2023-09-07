@@ -23,8 +23,6 @@ public class UserController {
 	private UserService userService;
 
 	@RequestMapping("/users/{userid}")
-
-	//받아올 인자값이 String userid로 이름을 맞추지 않으면 @PathVariable(설정한 이름)로 맞춰줘야함
 	public UserDTO getUser(@PathVariable String userid) {
 		UserDTO user = userService.getUser(userid);
 		return user;

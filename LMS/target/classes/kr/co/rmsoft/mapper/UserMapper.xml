@@ -13,7 +13,7 @@
 	</select>
 	
 	<insert id="insertUser">
-		INSERT INTO rmsoft_user VALUES(#{id}, #{pw}, #{name}, #{age})
+		INSERT INTO rmsoft_user VALUES(#{id}, #{pw}, #{name}, sysdate)
 	</insert>
 	
 	<update id="updateUser">
